@@ -53,29 +53,29 @@ void setup() {
 void loop() {
   int HI = 0;
   long duration, distance;
-
-  digitalWrite(OUT, LOW);
-  delayMicroseconds(2);
-  digitalWrite(OUT, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(OUT, LOW);
-
-  duration = pulseIn(IN, HIGH);
-
-  distance = duration*17/1000;
-
-  if(distance <= 30){
-    flicker(distance*10);
-  }
   
-  if(distance > 30){
-    HI = 31;
-  }else{
-    HI = distance;
-  }
-   for(int a = 0 ; a < 16 ; a++){
-    digitalWrite(port[a], num[HI][a]);
-  }
+    digitalWrite(OUT, LOW);
+    delayMicroseconds(2);
+    digitalWrite(OUT, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(OUT, LOW);
+
+    duration = pulseIn(IN, HIGH);
+
+    distance = duration*17/1000;
+
+    if(distance <= 30){
+      flicker(distance*10);
+    }
+  
+    if(distance > 30){
+      HI = 31;
+    }else{
+      HI = distance;
+    }
+    /*for(int a = 0 ; a < 16 ; a++){
+      digitalWrite(port[a], num[HI][a]);
+    }*/
 }
 
 int flicker(int t){
